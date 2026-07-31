@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLAME & CO. | Artisanal Burgers, Grills & Gourmet Fast Food</title>
+  <meta name="description" content="Flame & Co. - International grade artisanal fast food brand serving sizzling hot flame-grilled burgers, gourmet pizzas, wraps, sides, and dynamic desserts.">
+  
+  <!-- FontAwesome Icons (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ==========================================
+       ALL-IN-ONE EMBEDDED CSS DESIGN SYSTEM
+       ========================================== -->
+  <style>
+    :root {
+      --primary-red: #ff2a4b;
+      --primary-orange: #ff6b35;
+      --primary-yellow: #ffb703;
+      --dark-bg: #0b0b0e;
+      --dark-surface: #15151c;
+      --dark-card: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --font-heading: 'Outfit', sans-serif;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --shadow-glow: 0 0 35px rgba(255, 42, 75, 0.25);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.light-theme {
+      --dark-bg: #f8f9fc;
+      --dark-surface: #ffffff;
+      --dark-card: rgba(0, 0, 0, 0.03);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --shadow-glow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-main);
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    /* --- Glassmorphism --- */
+    .glass-panel {
+      background: var(--dark-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(255, 42, 75, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 42, 75, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .icon-btn:hover {
+      background: var(--primary-red);
+      color: #fff;
+      border-color: var(--primary-red);
+      transform: scale(1.05);
+    }
+
+    /* --- Header & Navigation --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 11, 14, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    body.light-theme header {
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--primary-red);
+      font-size: 1.9rem;
+    }
+    .logo span {
+      color: var(--primary-orange);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+      position: relative;
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-main);
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary-red);
+      border-radius: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--primary-red);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--dark-bg);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 5px;
+    }
+    .hamburger .bar {
+      width: 24px;
+      height: 2px;
+      background: var(--text-main);
+      transition: var(--transition);
+    }
+
+    /* --- SPA View Container --- */
+    .spa-view {
+      display: none;
+      animation: fadeInView 0.35s ease forwards;
+    }
+    .spa-view.active {
+      display: block;
+    }
+    @keyframes fadeInView {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Hero Banner Section --- */
+    .hero-section {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(11,11,14,0.92) 0%, rgba(21,21,28,0.88) 100%),
+                  url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      padding: 60px 0;
+    }
+    .hero-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 42, 75, 0.15);
+      border: 1px solid rgba(255, 42, 75, 0.3);
+      color: var(--primary-red);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* --- Section Titles --- */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .section-tag {
+      color: var(--primary-orange);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+    }
+    .section-title span {
+      color: var(--primary-red);
+    }
+
+    /* --- Category Filter Bar --- */
+    .category-filter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .cat-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--primary-red);
+      color: #fff;
+      border-color: var(--primary-red);
+      box-shadow: 0 6px 20px rgba(255, 42, 75, 0.3);
+    }
+
+    /* --- Food Cards Grid --- */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .food-card {
+      background: var(--dark-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .food-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-glow);
+      border-color: rgba(255, 42, 75, 0.3);
+    }
+    .food-img-wrapper {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+      background: #1e1e26;
+    }
+    .food-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .food-card:hover .food-img {
+      transform: scale(1.08);
+    }
+    .food-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(11, 11, 14, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--primary-orange);
+      font-size: 0.75rem;
+      font-weight: 800;
+      border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+    .food-info {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .food-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .food-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .food-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 15px;
+    }
+    .food-price {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+    }
+    .add-to-cart-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .add-to-cart-btn:hover {
+      background: var(--primary-red);
+      color: #fff;
+      border-color: var(--primary-red);
+      transform: scale(1.1);
+    }
+
+    /* --- Offers Banner Cards --- */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .offer-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      padding: 36px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(11,11,14,0.95) 0%, rgba(11,11,14,0.4) 100%);
+      z-index: 1;
+    }
+    .offer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+    .offer-content {
+      position: relative;
+      z-index: 2;
+      max-width: 300px;
+    }
+    .offer-tag {
+      background: var(--primary-red);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* --- Cart & Checkout Forms --- */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .form-input, .form-select, .form-textarea {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 12px rgba(255, 107, 53, 0.2);
+    }
+    .form-select {
+      background-color: var(--dark-surface);
+      cursor: pointer;
+    }
+
+    /* --- Cart Items Table --- */
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    .cart-table th, .cart-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .cart-table th {
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    /* --- Order Tracking Stepper --- */
+    .tracker-stepper {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin: 40px 0 50px;
+      padding: 0 10px;
+    }
+    .tracker-stepper::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      left: 10%;
+      right: 10%;
+      height: 4px;
+      background: var(--border-color);
+      z-index: 1;
+    }
+    .tracker-line {
+      position: absolute;
+      top: 25px;
+      left: 10%;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-orange);
+      z-index: 1;
+      transition: width 0.6s ease;
+    }
+    .step-node {
+      z-index: 2;
+      text-align: center;
+      flex: 1;
+    }
+    .step-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 1.2rem;
+      border: 2px solid var(--border-color);
+      transition: var(--transition);
+    }
+    .step-node.active .step-icon {
+      background: var(--primary-orange);
+      color: #fff;
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    }
+    .step-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: block;
+    }
+    .step-node.active .step-label {
+      color: var(--text-main);
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--dark-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 70px 0 30px;
+      margin-top: 80px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--primary-orange);
+      padding-left: 5px;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* --- Floating Widgets --- */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: var(--transition);
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #20bd5a;
+    }
+
+    .floating-cart-btn {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: var(--radius-full);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(255, 42, 75, 0.4);
+      z-index: 999;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .floating-cart-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* --- Responsive Queries --- */
+    @media (max-width: 992px) {
+      .hero-title { font-size: 3rem; }
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        transition: left 0.4s ease;
+      }
+      .nav-menu.active { left: 0; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.3rem; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER & NAVIGATION BAR
+       ========================================== -->
+  <header>
+    <div class="container nav-container">
+      <a href="#home" class="logo" onclick="showView('home')">
+        <i class="fa-solid fa-fire-flame-curved"></i>FLAME<span>&CO.</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active" onclick="showView('home')">Home</a>
+        <a href="#menu" class="nav-link" onclick="showView('menu')">Menu</a>
+        <a href="#offers" class="nav-link" onclick="showView('offers')">Offers</a>
+        <a href="#about" class="nav-link" onclick="showView('about')">About</a>
+        <a href="#contact" class="nav-link" onclick="showView('contact')">Contact</a>
+        <a href="#track" class="nav-link" onclick="showView('track')">Track Order</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="icon-btn" id="theme-toggle" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <div class="icon-btn" onclick="showView('cart')" title="Shopping Cart">
+          <i class="fa-solid fa-shopping-bag"></i>
+          <span class="cart-count" id="header-cart-count" style="display: none;">0</span>
+        </div>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       VIEW 1: HOME PAGE (DEFAULT)
+       ========================================== -->
+  <div class="spa-view active" id="view-home">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-tag"><i class="fa-solid fa-fire"></i> Sizzling Flame-Grilled Goodness</span>
+          <h1 class="hero-title">Artisanal <span>Burgers</span> & Sizzling Grills</h1>
+          <p class="hero-desc">Experience 100% premium Angus beef patties, gourmet flame-baked pizzas, and artisanal loaded sides prepared with secret house spices.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="showView('menu')"><i class="fa-solid fa-utensils"></i> Explore Menu</button>
+            <button class="btn btn-secondary" onclick="showView('offers')"><i class="fa-solid fa-tag"></i> View Deals</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's Best Sellers Grid -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Chef's Recommendations</span>
+          <h2 class="section-title">Most <span>Popular</span> Sizzlers</h2>
+        </div>
+        <div class="food-grid" id="home-specials-grid">
+          <!-- Dynamically populated by inline JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Exclusive Combo Deals Preview -->
+    <section class="section-padding" style="background: rgba(255,255,255,0.015);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Savings & Value</span>
+          <h2 class="section-title">Exclusive <span>Combo</span> Deals</h2>
+        </div>
+        <div class="offers-grid">
+          <div class="offer-card" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop');">
+            <div class="offer-content">
+              <span class="offer-tag">Save 25%</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 8px;">Family Feast Deal</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">2 Large Pizzas + 4 Gourmet Drinks + Garlic Bread</p>
+              <button class="btn btn-sm btn-primary" onclick="showView('menu')">Order Now $24.99</button>
+            </div>
+          </div>
+          <div class="offer-card" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop');">
+            <div class="offer-content">
+              <span class="offer-tag">Hot Deal</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 8px;">Midnight Snack Box</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Zinger Burger + Loaded Beef Fries + Cold Drink</p>
+              <button class="btn btn-sm btn-primary" onclick="showView('menu')">Order Now $8.99</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 2: FULL MENU PAGE WITH SEARCH & FILTER
+       ========================================== -->
+  <div class="spa-view" id="view-menu">
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Full Menu</span>
+          <h2 class="section-title">Crafted With <span>Passion</span></h2>
+          <!-- Search Box -->
+          <div style="max-width: 480px; margin: 24px auto 0; position: relative;">
+            <input type="text" id="menu-search-input" placeholder="Search burgers, pizzas, wings..." 
+                   class="form-input" style="padding-left: 44px; border-radius: var(--radius-full);">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+          </div>
+        </div>
+
+        <!-- Category Buttons Bar -->
+        <div class="category-filter" id="category-bar">
+          <button class="cat-btn active" data-category="all">All Items</button>
+          <button class="cat-btn" data-category="burgers">Burgers</button>
+          <button class="cat-btn" data-category="pizza">Pizza</button>
+          <button class="cat-btn" data-category="wraps">Wraps</button>
+          <button class="cat-btn" data-category="wings">Wings</button>
+          <button class="cat-btn" data-category="fries">Loaded Fries</button>
+          <button class="cat-btn" data-category="drinks">Drinks</button>
+          <button class="cat-btn" data-category="desserts">Desserts</button>
+        </div>
+
+        <!-- Dynamic Menu Items Grid -->
+        <div class="food-grid" id="full-menu-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 3: OFFERS & DEALS PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-offers">
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Limited Time Promotions</span>
+          <h2 class="section-title">Sizzling <span>Deals</span> & Combos</h2>
+        </div>
+        <div class="offers-grid">
+          <div class="offer-card" style="background-image: url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop');">
+            <div class="offer-content">
+              <span class="offer-tag">Best Value</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.7rem; margin-bottom: 8px;">Mega Burger Platter</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">4 Angus Beef Burgers + 2 Loaded Fries + 1.5L Drink</p>
+              <button class="btn btn-sm btn-primary" onclick="showView('menu')">Claim For $28.50</button>
+            </div>
+          </div>
+          <div class="offer-card" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop');">
+            <div class="offer-content">
+              <span class="offer-tag">Pizza Lovers</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.7rem; margin-bottom: 8px;">Buy 1 Get 1 Free Pizza</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Order any Large Gourmet Pizza and get another absolutely FREE!</p>
+              <button class="btn btn-sm btn-primary" onclick="showView('menu')">Claim For $14.99</button>
+            </div>
+          </div>
+          <div class="offer-card" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop');">
+            <div class="offer-content">
+              <span class="offer-tag">Solo Treat</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.7rem; margin-bottom: 8px;">Crispy Zinger Box</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Crispy Zinger Burger + Regular Fries + Chilled Drink</p>
+              <button class="btn btn-sm btn-primary" onclick="showView('menu')">Claim For $6.99</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 4: ABOUT US PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-about">
+    <section class="section-padding">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header">
+          <span class="section-tag">Our Artisanal Story</span>
+          <h2 class="section-title">Born From The <span>Flame</span></h2>
+        </div>
+        <div class="glass-panel" style="padding: 45px; text-align: center; border-radius: var(--radius-lg);">
+          <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">
+            Founded in 2026, <strong>FLAME & CO.</strong> started with a singular obsession: creating the most flavor-packed, flame-kissed burgers and gourmet pizzas using 100% natural, ethically sourced ingredients and authentic charcoal fire.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; border-top: 1px dashed var(--border-color); padding-top: 35px;">
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary-orange);">100%</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Fresh Angus Beef</p>
+            </div>
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary-red);">350°C</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Charcoal Flame Grill</p>
+            </div>
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 2.2rem; color: #25d366;">25 Min</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Average Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 5: CONTACT US PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-contact">
+    <section class="section-padding">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <span class="section-tag">We'd Love To Hear From You</span>
+          <h2 class="section-title">Get In <span>Touch</span></h2>
+        </div>
+        <div class="glass-panel" style="padding: 40px;">
+          <form onsubmit="event.preventDefault(); alert('Message sent successfully! We will get back to you soon.');">
+            <div class="form-group">
+              <label>Your Full Name *</label>
+              <input type="text" required placeholder="John Doe" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" required placeholder="john@example.com" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Message / Catering Inquiry *</label>
+              <textarea rows="4" required placeholder="How can we help you today?" class="form-textarea"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 6: SHOPPING CART PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-cart">
+    <section class="section-padding">
+      <div class="container" style="max-width: 950px;">
+        <div class="section-header">
+          <span class="section-tag">Your Food Box</span>
+          <h2 class="section-title">Shopping <span>Cart</span></h2>
+        </div>
+
+        <div class="glass-panel" style="padding: 35px;">
+          <div id="cart-items-container">
+            <!-- Populated dynamically by JS -->
+          </div>
+
+          <div id="cart-summary-footer" style="display: none; border-top: 1px dashed var(--border-color); padding-top: 25px; margin-top: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <span style="font-size: 1.25rem; font-weight: 700;">Subtotal Price:</span>
+              <span id="cart-subtotal-price" style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: var(--primary-orange);">$0.00</span>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 14px;">
+              <button class="btn btn-secondary" onclick="showView('menu')">Add More Items</button>
+              <button class="btn btn-primary" onclick="showView('checkout')"><i class="fa-solid fa-lock"></i> Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 7: GUEST CHECKOUT PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-checkout">
+    <section class="section-padding">
+      <div class="container" style="max-width: 950px;">
+        <div class="section-header">
+          <span class="section-tag">Fast & Secure</span>
+          <h2 class="section-title">Guest <span>Checkout</span></h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;">
+          <!-- Left: Customer Details Form -->
+          <div class="glass-panel" style="padding: 35px;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 20px;">Delivery Coordinates</h3>
+            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="cust-name" required placeholder="John Doe" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Phone Number *</label>
+                <input type="tel" id="cust-phone" required placeholder="+92 300 1234567" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>City / Area *</label>
+                <select id="cust-city" required class="form-select">
+                  <option value="Peshawar Cantt">Peshawar Cantt</option>
+                  <option value="Hayatabad">Hayatabad</option>
+                  <option value="University Town">University Town</option>
+                  <option value="Warsak Road">Warsak Road</option>
+                  <option value="Ring Road">Ring Road</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Delivery Address *</label>
+                <input type="text" id="cust-address" required placeholder="House/Flat No, Street details" class="form-input">
+              </div>
+              <div class="form-group">
+                <label>Order Notes (Optional)</label>
+                <textarea id="cust-notes" rows="2" placeholder="e.g. Mild spice, please ring bell" class="form-textarea"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;"><i class="fa-solid fa-fire"></i> Place Order via WhatsApp</button>
+            </form>
+          </div>
+
+          <!-- Right: Order Summary Preview -->
+          <div class="glass-panel" style="padding: 35px; align-self: start;">
+            <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 20px;">Order Summary</h3>
+            <div id="checkout-items-list" style="margin-bottom: 20px;"></div>
+            <div style="border-top: 1px dashed var(--border-color); padding-top: 18px; display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800;">
+              <span>Total to Pay (COD):</span>
+              <span id="checkout-total-price" style="color: var(--primary-orange);">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       VIEW 8: TRACK YOUR ORDER PAGE
+       ========================================== -->
+  <div class="spa-view" id="view-track">
+    <section class="section-padding">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <span class="section-tag">Live Status Stepper</span>
+          <h2 class="section-title">Track Your <span>Order</span></h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 10px;">Enter your Order ID (e.g. <strong>101</strong>) or registered phone number.</p>
+        </div>
+
+        <div class="glass-panel" style="padding: 35px; margin-bottom: 35px; text-align: center;">
+          <form onsubmit="handleTrackOrder(event)" style="display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap;">
+            <input type="text" id="track-query-input" required placeholder="e.g. 101 or +92 300 1234567" class="form-input" style="flex: 1; min-width: 200px;">
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Track</button>
+          </form>
+        </div>
+
+        <!-- Animated Progress Card -->
+        <div id="track-result-card" class="glass-panel" style="padding: 40px; display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 18px; margin-bottom: 30px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 id="track-order-id" style="font-family: var(--font-heading); font-size: 1.6rem;">Order #101</h3>
+              <span id="track-order-time" style="font-size: 0.85rem; color: var(--text-muted);">Placed Just Now</span>
+            </div>
+            <span id="track-status-badge" style="background: rgba(255,107,53,0.18); color: var(--primary-orange); font-weight: 800; padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.85rem;">Preparing</span>
+          </div>
+
+          <!-- Stepper Timeline -->
+          <div class="tracker-stepper">
+            <div class="tracker-line" id="tracker-progress-bar"></div>
+            <div class="step-node active" id="node-step-1">
+              <div class="step-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <span class="step-label">Received</span>
+            </div>
+            <div class="step-node active" id="node-step-2">
+              <div class="step-icon"><i class="fa-solid fa-check-double"></i></div>
+              <span class="step-label">Accepted</span>
+            </div>
+            <div class="step-node active" id="node-step-3">
+              <div class="step-icon"><i class="fa-solid fa-fire-burner"></i></div>
+              <span class="step-label">Preparing</span>
+            </div>
+            <div class="step-node" id="node-step-4">
+              <div class="step-icon"><i class="fa-solid fa-motorcycle"></i></div>
+              <span class="step-label">On The Way</span>
+            </div>
+            <div class="step-node" id="node-step-5">
+              <div class="step-icon"><i class="fa-solid fa-house-chimney-check"></i></div>
+              <span class="step-label">Delivered</span>
+            </div>
+          </div>
+
+          <!-- Ordered Items Summary -->
+          <h4 style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 15px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px;">Ordered Items</h4>
+          <div id="track-items-summary"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       FOOTER SECTION
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#home" class="logo" style="margin-bottom: 16px;" onclick="showView('home')">
+            <i class="fa-solid fa-fire-flame-curved"></i>FLAME<span>&CO.</span>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px;">
+            Artisanal fast food brand serving sizzling hot flame-grilled burgers, gourmet pizzas, wraps, sides, and dynamic desserts.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home" onclick="showView('home')">Home</a></li>
+            <li><a href="#menu" onclick="showView('menu')">Our Menu</a></li>
+            <li><a href="#offers" onclick="showView('offers')">Deals & Combos</a></li>
+            <li><a href="#about" onclick="showView('about')">About Us</a></li>
+            <li><a href="#contact" onclick="showView('contact')">Contact</a></li>
+            <li><a href="#track" onclick="showView('track')">Track Order</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Opening Hours</h4>
+          <ul class="footer-links" style="color: var(--text-muted); font-size: 0.92rem;">
+            <li>Monday – Thursday: <span>24 Hours</span></li>
+            <li>Friday – Sunday: <span>24 Hours</span></li>
+            <li>Delivery: <span>Free Over $15</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Newsletter</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Subscribe for exclusive promo codes and seasonal menus.</p>
+          <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" style="display: flex; gap: 8px;">
+            <input type="email" placeholder="Your email" required class="form-input" style="padding: 10px 14px;">
+            <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 FLAME & CO. All Rights Reserved. Built for standalone GitHub Pages hosting.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       FLOATING WIDGETS
+       ========================================== -->
+  <a href="https://wa.me/923015592549?text=Hello%2C%20I%20want%20to%20order%20from%20FLAME%20%26%20CO." target="_blank" class="whatsapp-float" aria-label="Order on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div class="floating-cart-btn" id="floating-cart-btn" onclick="showView('cart')">
+    <i class="fa-solid fa-shopping-bag"></i>
+    <span>View Cart (<strong id="float-cart-count">0</strong>)</span>
+  </div>
+
+  <!-- ==========================================
+       ALL-IN-ONE EMBEDDED JAVASCRIPT LOGIC
+       ========================================== -->
+  <script>
+    /* --- 1. FULL STATIC MENU DATABASE (24+ Artisanal Items with Unsplash Images) --- */
+    const MENU_ITEMS = [
+      // Burgers
+      { id: 'b1', name: 'Sizzling Zinger Burger', category: 'burgers', price: 3.99, tag: 'Best Seller', desc: 'Extra crispy chicken fillet, spicy house mayo, cheddar slice, fresh lettuce.', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop' },
+      { id: 'b2', name: 'Angus Beef Smokehouse', category: 'burgers', price: 5.49, tag: 'Chef Recommendation', desc: 'Flame-grilled 100% Angus beef patty, smoky BBQ sauce, caramelized onions.', img: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=500&auto=format&fit=crop' },
+      { id: 'b3', name: 'Double Lava Burger', category: 'burgers', price: 6.99, tag: 'Best Seller', desc: 'Two smash beef patties smothered in melted cheese lava and jalapeños.', img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=500&auto=format&fit=crop' },
+      { id: 'b4', name: 'Classic Cheeseburger', category: 'burgers', price: 3.49, tag: 'Popular', desc: 'Grilled beef patty, American cheddar, pickles, mustard, toasted brioche.', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500&auto=format&fit=crop' },
+      // Pizza
+      { id: 'p1', name: 'Gourmet Pepperoni Feast', category: 'pizza', price: 9.99, tag: 'Best Seller', desc: 'Loaded beef pepperoni, Italian mozzarella, signature herb tomato sauce.', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&auto=format&fit=crop' },
+      { id: 'p2', name: 'Smoky BBQ Chicken Pizza', category: 'pizza', price: 10.49, tag: 'Popular', desc: 'Grilled chicken chunks, red onions, sweet corn, smoky BBQ drizzle.', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&auto=format&fit=crop' },
+      { id: 'p3', name: 'Spicy Tikka Supreme', category: 'pizza', price: 10.99, tag: 'Chef Recommendation', desc: 'Tikka marinated chicken, green chillies, bell peppers, extra cheese.', img: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=500&auto=format&fit=crop' },
+      // Wraps
+      { id: 'w1', name: 'Crispy Chicken Wrap', category: 'wraps', price: 4.50, tag: 'Popular', desc: 'Golden crispy chicken strips, garlic mayo, fresh salad in toasted tortilla.', img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=500&auto=format&fit=crop' },
+      { id: 'w2', name: 'Spicy Fajita Wrap', category: 'wraps', price: 4.99, tag: 'New', desc: 'Grilled fajita chicken, sautéed peppers, salsa, sour cream.', img: 'https://images.unsplash.com/photo-1562059390-a761a084768e?q=80&w=500&auto=format&fit=crop' },
+      // Wings
+      { id: 'wg1', name: 'Dynamite Buffalo Wings', category: 'wings', price: 5.99, tag: 'Best Seller', desc: '6 extra crispy wings tossed in fiery buffalo sauce with ranch dip.', img: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=500&auto=format&fit=crop' },
+      { id: 'wg2', name: 'Honey BBQ Glazed Wings', category: 'wings', price: 5.99, tag: 'Popular', desc: '6 juicy chicken wings coated in sweet honey barbecue glaze.', img: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=500&auto=format&fit=crop' },
+      // Fries
+      { id: 'f1', name: 'Loaded Beef Mince Fries', category: 'fries', price: 4.50, tag: 'Best Seller', desc: 'Crispy fries topped with seasoned beef mince, cheese lava, jalapeños.', img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?q=80&w=500&auto=format&fit=crop' },
+      { id: 'f2', name: 'Peri-Peri Masala Fries', category: 'fries', price: 2.99, tag: 'Popular', desc: 'Golden french fries dusted with spicy African peri-peri masala.', img: 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?q=80&w=500&auto=format&fit=crop' },
+      // Drinks
+      { id: 'd1', name: 'Mint Margarita Cooler', category: 'drinks', price: 2.50, tag: 'Best Seller', desc: 'Refreshing blend of fresh mint leaves, lemon juice, soda, and crushed ice.', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500&auto=format&fit=crop' },
+      { id: 'd2', name: 'Oreo Fudge Shake', category: 'drinks', price: 3.99, tag: 'Popular', desc: 'Rich chocolate fudge shake blended with crushed Oreo cookies & cream.', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=500&auto=format&fit=crop' },
+      // Desserts
+      { id: 'ds1', name: 'Molten Lava Chocolate Cake', category: 'desserts', price: 4.50, tag: 'Best Seller', desc: 'Warm Belgian chocolate cake with a flowing molten fudge center.', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=500&auto=format&fit=crop' }
+    ];
+
+    /* --- 2. CLIENT-SIDE SHOPPING CART MANAGER --- */
+    let cart = [];
+    try {
+      cart = JSON.parse(localStorage.getItem('flame_cart') || '[]');
+    } catch (e) {
+      cart = [];
+    }
+
+    function saveCart() {
+      localStorage.setItem('flame_cart', JSON.stringify(cart));
+      updateCartBadges();
+      renderCartPage();
+      renderCheckoutSummary();
+    }
+
+    function addToCart(id) {
+      const item = MENU_ITEMS.find(f => f.id === id);
+      if (!item) return;
+      const existing = cart.find(c => c.id === id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...item, quantity: 1 });
+      }
+      saveCart();
+      alert(`Added "${item.name}" to cart!`);
+    }
+
+    function updateCartQuantity(id, delta) {
+      const idx = cart.findIndex(c => c.id === id);
+      if (idx > -1) {
+        cart[idx].quantity += delta;
+        if (cart[idx].quantity <= 0) {
+          cart.splice(idx, 1);
+        }
+        saveCart();
+      }
+    }
+
+    function updateCartBadges() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const headerBadge = document.getElementById('header-cart-count');
+      const floatBtn = document.getElementById('floating-cart-btn');
+      const floatCount = document.getElementById('float-cart-count');
+
+      if (headerBadge) {
+        headerBadge.textContent = totalCount;
+        headerBadge.style.display = totalCount > 0 ? 'flex' : 'none';
+      }
+      if (floatCount) floatCount.textContent = totalCount;
+      if (floatBtn) {
+        floatBtn.style.display = totalCount > 0 ? 'flex' : 'none';
+      }
+    }
+
+    /* --- 3. SPA VIEW SWITCHER ROUTER --- */
+    function showView(viewId) {
+      document.querySelectorAll('.spa-view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById(`view-${viewId}`) || document.getElementById('view-home');
+      target.classList.add('active');
+
+      // Update nav link active state
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${viewId}`) {
+          link.classList.add('active');
+        }
+      });
+
+      // Close mobile menu if open
+      document.getElementById('nav-menu').classList.remove('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.replaceState(null, null, `#${viewId}`);
+
+      if (viewId === 'cart') renderCartPage();
+      if (viewId === 'checkout') renderCheckoutSummary();
+    }
+
+    /* --- 4. RENDERERS: MENU & CARDS --- */
+    function renderFoodCard(food) {
+      return `
+        <div class="food-card">
+          <div class="food-img-wrapper">
+            <span class="food-badge">${food.tag || 'Flame Special'}</span>
+            <img src="${food.img}" alt="${food.name}" class="food-img" loading="lazy">
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">${food.name}</h3>
+            <p class="food-desc">${food.desc}</p>
+            <div class="food-footer">
+              <span class="food-price">$${food.price.toFixed(2)}</span>
+              <button class="add-to-cart-btn" onclick="addToCart('${food.id}')" title="Add to Cart">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMenuGrid(items) {
+      const grid = document.getElementById('full-menu-grid');
+      if (!grid) return;
+      if (items.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">No food items found matching your search.</p>`;
+      } else {
+        grid.innerHTML = items.map(renderFoodCard).join('');
+      }
+    }
+
+    function renderHomeSpecials() {
+      const grid = document.getElementById('home-specials-grid');
+      if (!grid) return;
+      const specials = MENU_ITEMS.filter(f => f.tag === 'Best Seller' || f.tag === 'Chef Recommendation').slice(0, 6);
+      grid.innerHTML = specials.map(renderFoodCard).join('');
+    }
+
+    /* --- 5. RENDER CART PAGE --- */
+    function renderCartPage() {
+      const container = document.getElementById('cart-items-container');
+      const footer = document.getElementById('cart-summary-footer');
+      const subtotalEl = document.getElementById('cart-subtotal-price');
+
+      if (!container) return;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 50px 20px;">
+            <i class="fa-solid fa-cart-shopping" style="font-size: 3.5rem; color: var(--text-muted); margin-bottom: 18px;"></i>
+            <h3>Your Shopping Cart is Empty</h3>
+            <p style="color: var(--text-muted); margin: 10px 0 24px;">Explore our artisanal flame-grilled menu and add your favorites!</p>
+            <button class="btn btn-primary" onclick="showView('menu')">Explore Menu</button>
+          </div>
+        `;
+        if (footer) footer.style.display = 'none';
+        return;
+      }
+
+      const total = cart.reduce((sum, c) => sum + c.price * c.quantity, 0);
+      if (subtotalEl) subtotalEl.textContent = `$${total.toFixed(2)}`;
+      if (footer) footer.style.display = 'block';
+
+      container.innerHTML = `
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Food Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            ${cart.map(c => `
+              <tr>
+                <td><strong>${c.name}</strong></td>
+                <td>$${c.price.toFixed(2)}</td>
+                <td>
+                  <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px;">
+                    <button onclick="updateCartQuantity('${c.id}', -1)" style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1rem;">-</button>
+                    <span style="font-weight: 700;">${c.quantity}</span>
+                    <button onclick="updateCartQuantity('${c.id}', 1)" style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1rem;">+</button>
+                  </div>
+                </td>
+                <td style="font-weight: 800; color: var(--primary-orange);">$${(c.price * c.quantity).toFixed(2)}</td>
+                <td>
+                  <button onclick="updateCartQuantity('${c.id}', -999)" style="background: none; border: none; color: var(--primary-red); cursor: pointer;" title="Remove">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    /* --- 6. RENDER CHECKOUT SUMMARY & SUBMIT --- */
+    function renderCheckoutSummary() {
+      const listEl = document.getElementById('checkout-items-list');
+      const totalEl = document.getElementById('checkout-total-price');
+      if (!listEl) return;
+
+      if (cart.length === 0) {
+        listEl.innerHTML = `<p style="color: var(--text-muted);">Your cart is empty.</p>`;
+        if (totalEl) totalEl.textContent = '$0.00';
+        return;
+      }
+
+      const total = cart.reduce((sum, c) => sum + c.price * c.quantity, 0);
+      if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+      listEl.innerHTML = cart.map(c => `
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+          <span>${c.quantity}x ${c.name}</span>
+          <strong style="color: var(--primary-orange);">$${(c.price * c.quantity).toFixed(2)}</strong>
+        </div>
+      `).join('');
+    }
+
+    function handleCheckoutSubmit(e) {
+      e.preventDefault();
+      if (cart.length === 0) {
+        alert('Please add food items to your cart before checking out.');
+        showView('menu');
+        return;
+      }
+
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const city = document.getElementById('cust-city').value;
+      const address = document.getElementById('cust-address').value.trim();
+      const notes = document.getElementById('cust-notes').value.trim();
+      const total = cart.reduce((sum, c) => sum + c.price * c.quantity, 0).toFixed(2);
+
+      const orderId = String(Math.floor(100 + Math.random() * 900));
+      const newOrder = {
+        id: orderId,
+        customer: name,
+        phone: phone,
+        address: address,
+        city: city,
+        notes: notes,
+        created_at: new Date().toLocaleString('en-US', { month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }),
+        status: 'Preparing',
+        step: 3,
+        items: cart,
+        total: total
+      };
+
+      let orders = JSON.parse(localStorage.getItem('flame_orders') || '[]');
+      orders.unshift(newOrder);
+      localStorage.setItem('flame_orders', JSON.stringify(orders));
+
+      // Build WhatsApp message
+      let msg = `🔥 *NEW ORDER #${orderId} ON FLAME & CO.* 🔥\n\n`;
+      msg += `👤 *Customer:* ${name}\n`;
+      msg += `📞 *Phone:* ${phone}\n`;
+      msg += `📍 *Address:* ${address}, ${city}\n`;
+      if (notes) msg += `📝 *Notes:* ${notes}\n`;
+      msg += `\n🛒 *Ordered Items:*\n`;
+      cart.forEach(item => {
+        msg += `• ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toFixed(2)})\n`;
+      });
+      msg += `\n*TOTAL PAID (COD): $${total}*\n`;
+
+      const waUrl = `https://wa.me/923015592549?text=${encodeURIComponent(msg)}`;
+
+      cart = [];
+      saveCart();
+
+      alert(`Order #${orderId} placed successfully! Opening WhatsApp confirmation...`);
+      window.open(waUrl, '_blank');
+
+      // Show live tracking for this order
+      document.getElementById('track-query-input').value = orderId;
+      showView('track');
+      searchOrder(orderId);
+    }
+
+    /* --- 7. ORDER TRACKING LOGIC --- */
+    function handleTrackOrder(e) {
+      e.preventDefault();
+      const query = document.getElementById('track-query-input').value.trim();
+      searchOrder(query);
+    }
+
+    function searchOrder(query) {
+      const clean = query.replace(/^#/, '').trim();
+      let orders = JSON.parse(localStorage.getItem('flame_orders') || '[]');
+      let matched = orders.find(o => String(o.id) === clean || (o.phone && o.phone.includes(clean)));
+
+      if (!matched) {
+        // Create demo mock order so tracker always demonstrates working animation
+        matched = {
+          id: clean.match(/^\d+$/) ? clean : '101',
+          created_at: 'Today',
+          status: 'Preparing',
+          step: 3,
+          total: '19.48',
+          items: [
+            { name: 'Sizzling Zinger Burger', quantity: 2, price: 3.99 },
+            { name: 'Loaded Beef Mince Fries', quantity: 1, price: 4.50 }
+          ]
+        };
+      }
+
+      document.getElementById('track-order-id').textContent = `Order #${matched.id}`;
+      document.getElementById('track-order-time').textContent = `Placed ${matched.created_at || 'Recently'}`;
+      document.getElementById('track-status-badge').textContent = matched.status || 'Preparing';
+
+      const stepNum = matched.step || 3;
+      const progressBar = document.getElementById('tracker-progress-bar');
+      if (progressBar) {
+        progressBar.style.width = `${Math.min(100, Math.max(0, (stepNum - 1) * 25))}%`;
+      }
+
+      for (let i = 1; i <= 5; i++) {
+        const node = document.getElementById(`node-step-${i}`);
+        if (node) {
+          if (i <= stepNum) node.classList.add('active');
+          else node.classList.remove('active');
+        }
+      }
+
+      const summaryEl = document.getElementById('track-items-summary');
+      if (summaryEl && matched.items) {
+        summaryEl.innerHTML = matched.items.map(it => `
+          <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <span>${it.quantity || 1}x ${it.name}</span>
+            <strong style="color: var(--primary-orange);">$${((it.price || 0) * (it.quantity || 1)).toFixed(2)}</strong>
+          </div>
+        `).join('') + `
+          <div style="display: flex; justify-content: space-between; padding-top: 14px; font-size: 1.2rem; font-weight: 800;">
+            <span>Total COD:</span>
+            <span style="color: #25d366;">$${matched.total}</span>
+          </div>
+        `;
+      }
+
+      document.getElementById('track-result-card').style.display = 'block';
+    }
+
+    /* --- 8. INITIALIZE PAGE ON LOAD --- */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHomeSpecials();
+      renderMenuGrid(MENU_ITEMS);
+      updateCartBadges();
+
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('light-theme');
+          const isLight = document.body.classList.contains('light-theme');
+          localStorage.setItem('flame_theme', isLight ? 'light' : 'dark');
+        });
+      }
+      if (localStorage.getItem('flame_theme') === 'light') {
+        document.body.classList.add('light-theme');
+      }
+
+      // Hamburger menu toggle
+      const hamburger = document.getElementById('hamburger-btn');
+      const menu = document.getElementById('nav-menu');
+      if (hamburger && menu) {
+        hamburger.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+
+      // Category filter buttons
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-category');
+          if (cat === 'all') {
+            renderMenuGrid(MENU_ITEMS);
+          } else {
+            const filtered = MENU_ITEMS.filter(f => f.category === cat);
+            renderMenuGrid(filtered);
+          }
+        });
+      });
+
+      // Search menu
+      const searchInput = document.getElementById('menu-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const q = e.target.value.toLowerCase().trim();
+          const filtered = MENU_ITEMS.filter(f => 
+            f.name.toLowerCase().includes(q) || 
+            (f.desc && f.desc.toLowerCase().includes(q)) ||
+            (f.category && f.category.toLowerCase().includes(q))
+          );
+          renderMenuGrid(filtered);
+        });
+      }
+
+      // Check URL hash on initial load
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['home', 'menu', 'offers', 'about', 'contact', 'cart', 'checkout', 'track'].includes(hash)) {
+        showView(hash);
+      }
+    });
+  </script>
+</body>
+</html>
